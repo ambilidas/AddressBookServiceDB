@@ -74,7 +74,7 @@ namespace AddressBookServiceDB
             try
             {
                 //sql query
-                SqlCommand cmd = new SqlCommand("select * from AddressBookService");
+                SqlCommand cmd = new SqlCommand("select * from AddressBook");
                 //opening connection
                 conn.Open();
                 //executing sql query
@@ -91,6 +91,38 @@ namespace AddressBookServiceDB
                 conn.Close();
             }
         }
+
+        public static void DeleteData()
+        {
+            SqlConnection conn = new SqlConnection("data source=LIANO; database=AddressBookService; integrated security=true");
+            try
+            {
+                //sql query
+                SqlCommand cmd = new SqlCommand("delete from AddressBook where Firstname=Athul");
+                //opening connection
+                conn.Open();
+                //executing sql query
+                int result=cmd.ExecuteNonQuery();
+                if( result != 0)
+                {
+                    Console.WriteLine("Updated contact");
+                }
+                else
+                {
+                    Console.WriteLine("Not updated");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Something went wrong" + ex);
+            }
+            //closing connection
+            finally
+            {
+                conn.Close();
+            }
+        }
+
 
 
     }
