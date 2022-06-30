@@ -7,7 +7,8 @@ namespace AddressBookServiceDB
         public static void Main(string[] args)
         {
             Console.WriteLine("Welcome to ADDRESSBOOKSERVICED_DB problem");
-            AddressBook.CreateDataBase();
+           // AddressBook.CreateDataBase();
+            AddressBook.RetrieveData();
         }
     }
 }
